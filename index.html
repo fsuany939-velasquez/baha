@@ -1,0 +1,506 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+	<title>Bienvenidos a las Bahamas | Paradise Explorer</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	<style>
+		/* Estilos profesionales y elegantes para la cortina de bienvenida */
+		#welcome-curtain {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, rgba(8, 51, 68, 0.92), rgba(15, 118, 110, 0.92)), url('image_cefdc3.jpg') no-repeat center center;
+			background-size: cover;
+			color: #ffffff;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			z-index: 99999;
+			text-align: center;
+			transition: opacity 0.8s ease, visibility 0.8s ease;
+			padding: 20px;
+		}
+		#welcome-curtain h1 {
+			font-size: 3.5rem;
+			margin-bottom: 15px;
+			color: #ffffff;
+			letter-spacing: 2px;
+			font-weight: 700;
+			text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+		}
+		#welcome-curtain p {
+			font-size: 1.25rem;
+			margin-bottom: 30px;
+			max-width: 650px;
+			text-shadow: 0 2px 5px rgba(0,0,0,0.4);
+			line-height: 1.6;
+		}
+		#welcome-curtain button {
+			background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+			color: #083344;
+			border: none;
+			padding: 15px 38px;
+			font-size: 1.05rem;
+			font-weight: bold;
+			border-radius: 30px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+		}
+		#welcome-curtain button:hover {
+			transform: translateY(-3px) scale(1.03);
+			background: #ffffff;
+			box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+		}
+		body.welcome-active {
+			overflow: hidden;
+		}
+
+		/* Fondo profesional marino con transiciones suaves para TODAS las secciones */
+		.banner, .spotlight, .wrapper.style1 {
+			background-color: #083344 !important;
+			color: #ffffff !important;
+		}
+		.banner .content h1,
+		.banner .content p,
+		.spotlight .content h2,
+		.spotlight .content p,
+		.spotlight .content strong,
+		.wrapper.style1 h2,
+		.wrapper.style1 p,
+		.wrapper.style1 h3 {
+			color: #ffffff !important;
+		}
+
+		/* Control de tamaño para evitar pixeleado en la primera imagen (Banner) */
+		.banner.fullscreen {
+			min-height: 70vh !important;
+			max-height: 85vh !important;
+		}
+		.banner .image img {
+			max-height: 85vh;
+			object-fit: cover;
+		}
+
+		/* Optimización de calidad, nitidez y aspecto general de imágenes */
+		.image img, .gallery img, .banner img, .spotlight img, .custom-gallery-card img {
+			image-rendering: -webkit-optimize-contrast;
+			image-rendering: crisp-edges;
+			filter: contrast(103%) saturate(105%);
+			max-width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
+
+		/* Estilos decorativos profesionales para títulos */
+		.section-title {
+			font-family: inherit;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 20px;
+			color: #ffffff !important;
+		}
+		.section-title::after {
+			content: '';
+			display: block;
+			width: 60px;
+			height: 3px;
+			background: #14b8a6;
+			margin: 10px auto 0 auto;
+			border-radius: 2px;
+		}
+
+		/* Estilos para la galería mejorada */
+		.custom-gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 25px;
+			padding: 20px 40px;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		.custom-gallery-card {
+			background: rgba(255, 255, 255, 0.06);
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+			transition: transform 0.3s ease, background 0.3s ease;
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			text-align: left;
+		}
+		.custom-gallery-card:hover {
+			transform: translateY(-6px);
+			background: rgba(255, 255, 255, 0.1);
+		}
+		.custom-gallery-card img {
+			width: 100%;
+			height: 220px;
+			object-fit: cover;
+			display: block;
+		}
+		.custom-gallery-info {
+			padding: 20px;
+		}
+		.custom-gallery-info h3 {
+			font-size: 1.2rem;
+			margin-bottom: 10px;
+			color: #ffffff !important;
+		}
+		.custom-gallery-info p {
+			font-size: 0.95rem;
+			color: #cbd5e1 !important;
+			margin-bottom: 15px;
+		}
+
+		/* Estilos optimizados para videos (Tamaño amplio y destacado) */
+		.videos-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+			gap: 35px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 10px 20px;
+		}
+		.video-card {
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 16px;
+			padding: 20px;
+			border: 1px solid rgba(255, 255, 255, 0.12);
+			box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+			text-align: center;
+		}
+		.video-card h3 {
+			font-size: 1.25rem;
+			margin-bottom: 15px;
+			color: #ffffff !important;
+		}
+		.video-container {
+			position: relative;
+			width: 100%;
+			border-radius: 12px;
+			overflow: hidden;
+			background: #000;
+			box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+		}
+		.video-container video {
+			width: 100%;
+			height: auto;
+			max-height: 480px; /* Tamaño grande y cómodo para visualización */
+			display: block;
+			object-fit: cover;
+		}
+
+		/* Responsive para videos en pantallas pequeñas */
+		@media screen and (max-width: 500px) {
+			.videos-grid {
+				grid-template-columns: 1fr;
+			}
+			.video-container video {
+				max-height: 280px;
+			}
+		}
+
+		/* Insignia global de turismo mundial */
+		.global-badge {
+			display: inline-block;
+			background: rgba(20, 184, 166, 0.2);
+			border: 1px solid #14b8a6;
+			color: #5eead4;
+			padding: 6px 16px;
+			border-radius: 20px;
+			font-size: 0.85rem;
+			font-weight: 600;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body class="is-preload welcome-active">
+
+	<!-- Cortina de Bienvenida -->
+	<div id="welcome-curtain">
+		<span class="global-badge">🌍 Destino Turístico Mundial No. 1 del Caribe</span>
+		<h1>🌴 ¡Bienvenidos a las Bahamas! 🌍</h1>
+		<p>Sumérgete en aguas cristalinas de tonos turquesa únicos, playas de arena rosada y vive experiencias inolvidables en el paraíso mundial junto a nuestros famosos amigos de Exuma.</p>
+		<button onclick="dismissWelcome()">✨ Explorar el Paraíso</button>
+	</div>
+
+	<!-- Wrapper -->
+	<div id="wrapper" class="divided">
+
+		<!-- One -->
+		<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+			<div class="content">
+				<span class="global-badge">✨ Experiencia Exclusiva Global</span>
+				<h1 class="section-title">Bahamas Paradise 🌊</h1>
+				<p class="major">Descubre el encanto tropical de las islas más hermosas del Caribe. Playas paradisíacas reconocidas internacionalmente, aventuras marinas inigualables y un destino de ensueño diseñado para ti.</p>
+				<ul class="actions stacked">
+					<li><a href="#first" class="button big wide smooth-scroll-middle">🚀 Ver Aventuras</a></li>
+				</ul>
+			</div>
+			<div class="image">
+				<img src="image_cefd81.png" alt="Bahamas Vista Aérea" />
+			</div>
+		</section>
+
+		<!-- Two -->
+		<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+			<div class="content">
+				<h2 class="section-title">Nado con los Cerdos en Exuma 🐷</h2>
+				<p>Vive una experiencia única a nivel mundial en Cayo Major (Big Major Cay), donde podrás interactuar y nadar en aguas turquesas junto a los famosos y amigables cerdos nadadores de las Bahamas.</p>
+				<p><strong>🚤 Experiencia:</strong> Incluye tour guiado en lancha con atención personalizada.</p>
+				<ul class="actions stacked">
+					<li><a href="#contact" class="button smooth-scroll-middle">📅 Solicitar Información</a></li>
+				</ul>
+			</div>
+			<div class="image">
+				<img src="image_cefdc3.jpg" alt="Nado con Cerdos Exuma" />
+			</div>
+		</section>
+
+		<!-- Three -->
+		<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+			<div class="content">
+				<h2 class="section-title">Resorts de Lujo y Playas 🏨</h2>
+				<p>Hospédate en los complejos turísticos más exclusivos frente al mar, disfrutando de vistas panorámicas inigualables, piscinas de ensueño y servicio de primera categoría premiado internacionalmente.</p>
+				<p><strong>⭐ Hospedaje Premium:</strong> Instalaciones exclusivas adaptadas a tus necesidades.</p>
+				<ul class="actions stacked">
+					<li><a href="#contact" class="button smooth-scroll-middle">📅 Solicitar Información</a></li>
+				</ul>
+			</div>
+			<div class="image">
+				<img src="image_cefda4.png" alt="Resorts de Lujo Bahamas" />
+			</div>
+		</section>
+
+		<!-- Four -->
+		<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+			<div class="content">
+				<h2 class="section-title">Excursiones en Cays ⛵</h2>
+				<p>Navega a través de las hermosas islas y bancos de arena aislados del archipiélago. Un paisaje virgen perfecto para el descanso, el snorkel y la fotografía submarina en el corazón del Atlántico.</p>
+				<p><strong>🤿 Incluye:</strong> Recorridos en embarcaciones equipadas y asistencia especializada.</p>
+				<ul class="actions stacked">
+					<li><a href="#contact" class="button smooth-scroll-middle">📅 Solicitar Información</a></li>
+				</ul>
+			</div>
+			<div class="image">
+				<img src="image_cefdbe.png" alt="Excursión por las Islas" />
+			</div>
+		</section>
+
+		<!-- Five: Galería de Destinos -->
+		<section class="wrapper style1 align-center">
+			<div class="inner">
+				<h2 class="section-title">Galería de Destinos 📸</h2>
+				<p>Explora un vistazo visual de los paisajes y rincones más impresionantes que cautivan a viajeros de todo el mundo en las Bahamas.</p>
+			</div>
+
+			<!-- Cuadrícula de Galería -->
+			<div class="custom-gallery-grid">
+				<div class="custom-gallery-card">
+					<img src="bahamas_resort_view.png" alt="Vista general de complejos hoteleros" />
+					<div class="custom-gallery-info">
+						<h3>🏖️ Resort en la Costa</h3>
+						<p>Vista general de complejos hoteleros y el mar de las Bahamas.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="bahamas_costa_cruceros.png" alt="Costa tropical y cruceros" />
+					<div class="custom-gallery-info">
+						<h3>🏝️ Costa y Cruceros</h3>
+						<p>Costa tropical y barcos/cruceros en el horizonte.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="islas_cristalinas.png" alt="Islotes y formaciones rocosas" />
+					<div class="custom-gallery-info">
+						<h3>⛵ Islotes Cristalinos</h3>
+						<p>Islotes y formaciones rocosas en aguas turquesas.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="playa_palmeras_aerea.png" alt="Vista aérea de playa con palmeras" />
+					<div class="custom-gallery-info">
+						<h3>🐚 Playa y Palmeras</h3>
+						<p>Vista aérea de playa con palmeras y lancha.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="buceo_turistas.png" alt="Personas haciendo buceo" />
+					<div class="custom-gallery-info">
+						<h3>🌊 Aventura de Buceo</h3>
+						<p>Personas haciendo esnórquel o buceo disfrutando del mar.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="cerdos_playa_bahamas.png" alt="Cerdos nadadores en la playa" />
+					<div class="custom-gallery-info">
+						<h3>🌴 Cerditos en la Playa</h3>
+						<p>Turistas interactuando con los famosos cerdos nadadores.</p>
+					</div>
+				</div>
+
+				<div class="custom-gallery-card">
+					<img src="cielo_tormentoso_playa.png" alt="Paisaje con nubes dramáticas" />
+					<div class="custom-gallery-info">
+						<h3>🐷 Atardecer Dinámico</h3>
+						<p>Paisaje costero con nubes dramáticas y el resort al fondo.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Six -->
+		<section class="wrapper style1 align-center">
+			<div class="inner">
+				<h2 class="section-title">Servicios y Experiencias ✨</h2>
+				<p>Todo lo que necesitas para planificar unas vacaciones de lujo y aventura inolvidables en el archipiélago.</p>
+				<div class="items style1 medium onscroll-fade-in">
+					<section>
+						<span class="icon style2 major fa-gem"></span>
+						<h3>👑 Resorts de Lujo</h3>
+						<p>Hospedaje de primera categoría frente al mar con servicios exclusivos y atención personalizada.</p>
+					</section>
+					<section>
+						<span class="icon solid style2 major fa-save"></span>
+						<h3>🔒 Atención Garantizada</h3>
+						<p>Planes de viaje adaptados a tus preferencias con gestión profesional completa.</p>
+					</section>
+					<section>
+						<span class="icon solid style2 major fa-chart-bar"></span>
+						<h3>💎 Experiencias Exclusivas</h3>
+						<p>Atención preferencial en paquetes de aventura, transporte y excursiones guiadas.</p>
+					</section>
+					<section>
+						<span class="icon solid style2 major fa-wifi"></span>
+						<h3>📶 Conectividad Total</h3>
+						<p>Guías digitales actualizados y asistencia en línea las 24 horas durante todo tu recorrido vacacional.</p>
+					</section>
+					<section>
+						<span class="icon solid style2 major fa-cog"></span>
+						<h3>✈️ Logística de Vuelo</h3>
+						<p>Asesoría completa con conexiones aéreas y traslados privados entre las diferentes islas.</p>
+					</section>
+					<section>
+						<span class="icon style2 major fa-paper-plane"></span>
+						<h3>🛥️ Tours Privados</h3>
+						<p>Excursiones personalizadas en yate o avioneta adaptadas al itinerario de tus sueños.</p>
+					</section>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sección de Videos Promocionales Locales (Optimizados en mayor tamaño) -->
+		<section class="wrapper style1 align-center" id="promos">
+			<div class="inner">
+				<h2 class="section-title">🎥 Videos Promocionales 🎬</h2>
+				<p>Disfruta de nuestros clips oficiales y enamórate de los paisajes paradisíacos de las Bahamas antes de tu viaje.</p>
+				<br />
+				
+				<div class="videos-grid">
+					<!-- Video 1 -->
+					<div class="video-card">
+						<h3>🌴 Recorrido y Paraíso Natural</h3>
+						<div class="video-container">
+							<video controls poster="image_cefdc3.jpg">
+								<source src="video2.mp4" type="video/mp4">
+								Tu navegador no soporta la reproducción de videos.
+							</video>
+						</div>
+					</div>
+
+					<!-- Video 2 -->
+					<div class="video-card">
+						<h3>🌊 Experiencias y Excursiones</h3>
+						<div class="video-container">
+							<video controls poster="image_cefd81.png">
+								<source src="video1.mp4" type="video/mp4">
+								Tu navegador no soporta la reproducción de videos.
+							</video>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<!-- Seven -->
+		<section class="wrapper style1 align-center" id="contact">
+			<div class="inner medium">
+				<h2 class="section-title">📬 Contáctanos ✍️</h2>
+				<form method="post" action="#">
+					<div class="fields">
+						<div class="field half">
+							<label for="name">👤 Nombre</label>
+							<input type="text" name="name" id="name" value="" />
+						</div>
+						<div class="field half">
+							<label for="email">✉ Correo Electrónico</label>
+							<input type="email" name="email" id="email" value="" />
+						</div>
+						<div class="field">
+							<label for="message">💬 Mensaje / Comentario</label>
+							<textarea name="message" id="message" rows="6"></textarea>
+						</div>
+					</div>
+					<ul class="actions special">
+						<li><input type="submit" name="submit" id="submit" value="📤 Enviar Mensaje" /></li>
+					</ul>
+				</form>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="wrapper style1 align-center">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+					<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<p>&copy; Bahamas Paradise Explorer. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		function dismissWelcome() {
+			const curtain = document.getElementById('welcome-curtain');
+			curtain.style.opacity = '0';
+			curtain.style.visibility = 'hidden';
+			document.body.classList.remove('welcome-active');
+		}
+	</script>
+
+</body>
+</html>
